@@ -42,10 +42,15 @@ dependencies {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
 }
-tasks.withType<Copy> {
-    into "$buildDir/output/libs"
-    from configurations.compile
+
+tasks.create<Copy>("copyJars") {
+    description = "Copies sources to the dest directory"
+    group = "Custom"
+    from(configurations.runtimeClasspath)
+    into("$buildDir/output/libs")
+    println("$buildDir/output/libs")
 }
+
 
 tasks.withType<Test> {
     useJUnitPlatform()
