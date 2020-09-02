@@ -42,6 +42,10 @@ dependencies {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
 }
+tasks.withType<Copy> {
+    into "$buildDir/output/libs"
+    from configurations.compile
+}
 
 tasks.withType<Test> {
     useJUnitPlatform()
