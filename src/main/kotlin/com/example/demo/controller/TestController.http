@@ -1,0 +1,12 @@
+POST http://localhost:8000/query
+Content-Type: application/x-www-form-urlencoded
+
+current=1&&size=10
+
+###
+GET http://localhost:8000/greeting?name=test
+Accept: application/json
+
+### test接口
+GET http://localhost:8000/list
+Accept: application/json
